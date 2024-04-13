@@ -20,8 +20,8 @@ jobs:
           secrets: |
             {
               "WEBUI_SECRET_KEY": "${{ secrets.WEBUI_SECRET_KEY }}",
-              "OPENAI_API_KEY": "${{ secrets.OPENAI_API_KEY }}"
-
+              "OPENAI_API_KEY": "${{ secrets.OPENAI_API_KEY }}",
+              "TRAEFIK_HOST": "${{ secrets.TRAEFIK_HOST }}"
             }
           webhook-url: ${{ secrets.WEBHOOK_URL }}
           bearer-token: ${{ secrets.WEBHOOK_TOKEN }}
