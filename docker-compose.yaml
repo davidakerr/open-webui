@@ -8,6 +8,7 @@ services:
         OLLAMA_BASE_URL: '/ollama'
       dockerfile: Dockerfile
     image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
+    platform: linux/amd64
     container_name: chat
     volumes:
       - open-webui:/app/backend/data
@@ -34,3 +35,4 @@ networks:
 
 volumes:
   open-webui: {}
+
