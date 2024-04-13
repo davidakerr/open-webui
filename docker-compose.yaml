@@ -21,7 +21,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.translate-secure.rule=Host(`***REMOVED***`)"
+      - "traefik.http.routers.chat-secure.rule=Host(`${TRAEFIK_HOST}`)"
       - "traefik.http.routers.chat-secure.entrypoints=websecure"
       - "traefik.http.routers.chat-secure.tls=true"
       - "traefik.http.routers.chat-secure.tls.certresolver=myresolver"
