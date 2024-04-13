@@ -1,0 +1,27 @@
+name: Deploy
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  webhooker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Webhook Action
+        uses: davidakerr/actions/webhooker@main
+        with:
+          data: |
+            {
+              "make":"optional"
+            }
+          secrets: |
+            {
+              "WEBUI_SECRET_KEY": "${{ secrets.WEBUI_SECRET_KEY }}",
+              "OPENAI_API_KEY": "${{ secrets.OPENAI_API_KEY }}"
+
+            }
+          webhook-url: ${{ secrets.WEBHOOK_URL }}
+          bearer-token: ${{ secrets.WEBHOOK_TOKEN }}
